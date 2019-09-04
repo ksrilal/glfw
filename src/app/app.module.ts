@@ -7,6 +7,7 @@ import { HomeComponent } from './Pages/home/home.component';
 import { ScheduleComponent } from './Pages/schedule/schedule.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ShoppingCartComponent } from './Pages/shopping-cart/shopping-cart.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     ScheduleComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
