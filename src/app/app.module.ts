@@ -8,6 +8,7 @@ import { ScheduleComponent } from './Pages/schedule/schedule.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShoppingCartComponent } from './Pages/shopping-cart/shopping-cart.component';
+import { SpeakersComponent } from './Pages/speakers/speakers.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ShoppingCartComponent } from './Pages/shopping-cart/shopping-cart.compo
     ScheduleComponent,
     HeaderComponent,
     FooterComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    SpeakersComponent
   ],
   imports: [
     BrowserModule,
