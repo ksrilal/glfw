@@ -63,14 +63,16 @@
               <div class="col-sm-3">
                 <!-- Avatar -->
                 <div class="author-avatar">
-                  <img src="../assets/img/bg-img/53.jpg" alt="" />
+                  <img src="../assets/img/bg-img/Romesh-Gunasekara.jpg" alt="" />
                 </div>
               </div>
               <div class="col-sm-4">
                 <!-- Author Content -->
                 <div class="author-content">
-                  <h5>Los Angeles Institute</h5>
-                  <span>Channa Daswaththa</span>
+                  <h5>Excursion</h5>
+                  <span>Romesh Gunesekara
+
+</span>
                   <!-- <p>
                     These cases are perfectly simple and easy to distinguish. In
                     a free hour, when our power of choice is untrammelled and
@@ -81,20 +83,23 @@
               <div class="col-sm-3">
                 <button
                   type="button"
-                  class="btn btn-secondary btn-circle btn-sm">   -
+                  class="btn btn-secondary btn-circle btn-sm"
+                  (click)="decrement()"
+                  >   -
                 </button>
                 &nbsp;
-                2
+                {{count}}
                 &nbsp;
                 <button
                   type="button"
                   class="btn btn-secondary btn-circle btn-sm"
+                  (click)="increment()"
                 >
                   +
                 </button>
               </div>
               <div class="col-sm-2">
-                <h5>USD &nbsp; $20.00</h5>
+                <h5>USD &nbsp; ${{amount}}.00</h5>
               </div>
             </div>
           </div>
@@ -131,7 +136,7 @@
                 <!-- <p>Item (1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$20</p> -->
                 <!-- <p>------------------------</p> -->
                 <p>
-                  Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$20
+                  Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${{amount}}
                 </p>
                 <div
                   class="hero-btn-group"
