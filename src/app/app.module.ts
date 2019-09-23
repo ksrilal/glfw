@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShoppingCartComponent } from './Pages/shopping-cart/shopping-cart.component';
 import { SpeakersComponent } from './Pages/speakers/speakers.component';
+import { LoginComponent } from './Pages/login/login.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SpeakersComponent } from './Pages/speakers/speakers.component';
     HeaderComponent,
     FooterComponent,
     ShoppingCartComponent,
-    SpeakersComponent
+    SpeakersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
