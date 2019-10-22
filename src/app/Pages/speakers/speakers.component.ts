@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpeakerService } from 'src/app/speaker.service';
 
 @Component({
   selector: 'app-speakers',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpeakersComponent implements OnInit {
 
-  constructor() { }
+  speakers: any[];
+
+  constructor(speakerService: SpeakerService) {
+     speakerService.getAll().subscribe(speakers=>{
+
+      this.speakers=speakers; 
+
+    });
+   }
 
   ngOnInit() {
   }
+
+
+
 
 }

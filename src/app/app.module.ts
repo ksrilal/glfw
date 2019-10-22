@@ -10,6 +10,18 @@ import { FooterComponent } from './footer/footer.component';
 import { ShoppingCartComponent } from './Pages/shopping-cart/shopping-cart.component';
 import { SpeakersComponent } from './Pages/speakers/speakers.component';
 import { LoginComponent } from './Pages/login/login.component';
+import { environment } from 'src/environments/environment.prod';
+
+import { AngularFireModule} from '@angular/fire';
+import { AngularFireAuthModule} from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+//import { AngularFireDatabaseModule } from '@angular/fire/database';
+//import { ReactiveFormsModule } from '@angular/forms';
+import { LoginService } from './login.service';
+import { SpeakerCardComponent } from './speaker-card/speaker-card.component';
+import { SpeakerService } from './speaker.service';
+
 
 
 @NgModule({
@@ -21,13 +33,21 @@ import { LoginComponent } from './Pages/login/login.component';
     FooterComponent,
     ShoppingCartComponent,
     SpeakersComponent,
-    LoginComponent
+    LoginComponent,
+    SpeakerCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    // AngularFireDatabaseModule,
+    //ReactiveFormsModule
+
   ],
-  providers: [],
+  providers: [LoginService,SpeakerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
