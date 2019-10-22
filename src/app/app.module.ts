@@ -1,3 +1,4 @@
+import { ScheduleCardComponent } from './schedule-card/schedule-card.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -31,7 +32,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     SpeakersComponent,
     LoginComponent,
     EventsComponent,
-    EventCardComponent
+    EventCardComponent,
+    ScheduleCardComponent
   ],
   imports: [
     BrowserModule,
