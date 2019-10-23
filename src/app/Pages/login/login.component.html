@@ -1,56 +1,95 @@
-<!-- Our Ticket Pricing Table Area Start -->
-<section class="our-ticket-pricing-table-area section-padding-100-0">
-  <div class="container">
-      <div class="row">
-          <!-- Single Ticket Pricing Table -->
-          <div class="col-12 col-lg-3">
-              <div class="" data-wow-delay="300ms">
-
-              </div>
-          </div>
-
-          <!-- Single Ticket Pricing Table -->
-          <div class="col-12 col-md-6 col-lg-6">
-              <div class="single-ticket-pricing-table style-2 active text-center mb-100 wow fadeInUp" data-wow-delay="300ms">
-                  <h4 class="ticket-plan">Galle Literary Festival 2019</h4>
-                  <h4> Login </h4>
-
-                  <!-- Form Group -->
-                  <div class="">
-                    <div class="form-group">
-                        <input type="email" class="form-control mb-30" name="email" id="email" placeholder="Enter email" required>
-                        <p> We'll never share your email with anyone else </p>
-                    </div>
-                </div>
-                <!-- Form Group -->
-                <div class="">
-                    <div class="form-group">
-                        <input type="password" class="form-control mb-30" name="password" id="password" placeholder="Password" required>
-                    </div>
-                </div>
-                <!-- Form Group -->
-                <div>
-
-                    <input type="checkbox" name="vehicle3" value="Boat" checked> Remember me
-
-                </div>
-
-                  <a href="#" class="btn confer-btn w-100 mb-30"> Login <i class="zmdi zmdi-long-arrow-right"></i></a>
-
-                    <a href="">Forgot Password</a>
-
-
-              </div>
-
-          </div>
-
-          <!-- Single Ticket Pricing Table -->
-          <div class="col-12 col-md-6 col-lg-3">
-              <div class="" data-wow-delay="300ms">
-
-              </div>
-          </div>
-      </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="text-center" style="width: 100%;margin: 20px;">
+    <h4>Galle Literary Festival Login</h4>
   </div>
-</section>
-<!-- Our Ticket Pricing Table Area End -->
+  <div class="" style="width: 500px; margin: auto">
+
+    <div class="card">
+      <!-- When Uses is Not Logged In -->
+      <div class="card-body" *ngIf="!userDetails">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <div class="btn-group">
+              <button type="button" class="btn" [ngClass]="{'btn-primary
+                active': selectedVal == 'login' }"
+                (click)="onValChange('login')"><strong>Login</strong></button>
+              <button type="button" class="btn" [ngClass]="{'btn-primary
+                active': selectedVal == 'register' }"
+                (click)="onValChange('register')"><strong>Register</strong></button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" [(ngModel)]="emailInput"
+            id="email" placeholder="Email">
+        </div>
+        <div class="form-group" *ngIf="!isForgotPassword">
+          <label for="password">Password</label>
+          <input type="password" class="form-control"
+            [(ngModel)]="passwordInput" id="password" placeholder="Password">
+        </div>
+        <div class="form-group" *ngIf="!isForgotPassword">
+
+          <span *ngIf="selectedVal == 'login'; else elseBlock">
+            <button type="button" class="btn btn-primary" (click)="loginUser()">Log
+              In</button>
+          </span>
+          <ng-template #elseBlock>
+            <button type="button" class="btn btn-primary"
+              (click)="registerUser()">Register</button>
+          </ng-template>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <a href="javascript:void(0)" (click)="this.isForgotPassword= true;">Forgot
+            Password?</a>
+
+        </div>
+        <div class="form-group" *ngIf="isForgotPassword">
+
+          <button type="button" class="btn" (click)="this.isForgotPassword=
+            false;">Cancel</button>
+          <button type="button" class="btn btn-primary"
+            (click)="forgotPassword()">Get email to reset passowrd</button>
+        </div>
+        <div class="form-group text-center">
+          <img src="../assets/images/googlebtn.png" alt="" srcset=""
+            (click)="googleLogin()" style="cursor: pointer;">
+        </div>
+
+      </div>
+
+      <!-- When Uses is Logged In using Email or Google Account -->
+      <div class="card-body" *ngIf="userDetails">
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="list-group">
+              <li class="list-group-item">Display Name:
+                {{userDetails['displayName']}}</li>
+              <li class="list-group-item">Email: {{userDetails['email']}}</li>
+              <li class="list-group-item">Is Email Varified:
+                {{userDetails['emailVerified']}}</li>
+              <li class="list-group-item">
+                <button type="button" class="btn btn-danger"
+                  (click)="logoutUser()">Logout</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-{{responseMessageType}}" role="alert"
+      *ngIf="responseMessage.length">
+      {{responseMessage}}
+    </div>
+  </div>
+</div>
