@@ -15,9 +15,11 @@ import { EventsComponent } from './pages/events/events.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { TicketService } from './ticket.service';
 import { environment } from 'src/environments/environment';
+import {FormsModule}from '@angular/forms';
 
 import { AngularFireModule } from "@angular/fire";
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 
@@ -38,6 +40,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
