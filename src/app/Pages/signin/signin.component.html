@@ -1,0 +1,93 @@
+  <app-header></app-header>
+
+  <section style="padding-top: 10%">
+<div class="row">
+  <div class="text-center" style="width: 100%;margin: 20px;">
+    <h4>Galle Literary Festival Sign In</h4>
+  </div>
+  <div class="" style="width: 500px; margin: auto">
+
+    <div class="card">
+      <!-- When Uses is Not Logged In -->
+      <div class="card-body" *ngIf="!userDetails">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <div class="btn-group">
+              <button type="button" class="btn confer-btn w-10 mb-30" [ngClass]="{'confer-btn active': selectedVal == 'login' }"
+                (click)="onValChange('login')"><strong>Sign in</strong></button>
+              <button type="button" class="btn confer-btn w-10 mb-30" [ngClass]="{'confer-btn active': selectedVal == 'register' }"
+                (click)="onValChange('register')"><strong>Register</strong></button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" [(ngModel)]="emailInput"
+            id="email" placeholder="Email">
+        </div>
+        <div class="form-group" *ngIf="!isForgotPassword">
+          <label for="password">Password</label>
+          <input type="password" class="form-control"
+            [(ngModel)]="passwordInput" id="password" placeholder="Password">
+        </div>
+        <div class="form-group" *ngIf="!isForgotPassword">
+
+          <span *ngIf="selectedVal == 'login'; else elseBlock">
+            <!--btn btn-primary -->
+            <button type="button" class="btn confer-btn w-100 mb-30" (click)="loginUser()">Sign
+              In</button>
+          </span>
+          <ng-template #elseBlock>
+            <button type="button" class="btn confer-btn w-100 mb-30"
+              (click)="registerUser()">Register</button>
+          </ng-template>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <a href="javascript:void(0)" (click)="this.isForgotPassword= true;">Forgot
+            Password?</a>
+
+        </div>
+        <div class="form-group" *ngIf="isForgotPassword">
+
+          <button type="button" class="btn" (click)="this.isForgotPassword=
+            false;">Cancel</button>
+          <button type="button" class="btn confer-btn w-100 mb-30"
+            (click)="forgotPassword()">Get email to reset passowrd</button>
+        </div>
+        <div class="form-group text-center">
+          <img src="../assets/img/core-google/google-sign-in-btn.png" alt="Sign In With Google" srcset=""
+            (click)="googleLogin()" style="cursor: pointer;">
+        </div>
+
+      </div>
+
+      <!-- When Uses is Logged In using Email or Google Account -->
+      <div class="card-body" *ngIf="userDetails">
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="list-group">
+              <li class="list-group-item">Display Name:
+                {{userDetails['displayName']}}</li>
+              <li class="list-group-item">Email: {{userDetails['email']}}</li>
+              <li class="list-group-item">Is Email Varified:
+                {{userDetails['emailVerified']}}</li>
+              <li class="list-group-item">
+                <button type="button" class="btn btn-danger"
+                  (click)="logoutUser()">Logout</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-{{responseMessageType}}" role="alert"
+      *ngIf="responseMessage.length">
+      {{responseMessage}}
+    </div>
+  </div>
+</div>
+</section>
+<app-footer></app-footer>

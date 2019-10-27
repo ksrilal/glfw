@@ -10,7 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShoppingCartComponent } from './Pages/shopping-cart/shopping-cart.component';
 import { SpeakersComponent } from './Pages/speakers/speakers.component';
-import { LoginComponent } from './Pages/login/login.component';
+import { LoginComponent } from './Pages/signin/signin.component';
 import { EventsComponent } from './pages/events/events.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { TicketService } from './ticket.service';
