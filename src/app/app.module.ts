@@ -20,6 +20,7 @@ import {FormsModule}from '@angular/forms';
 import { AngularFireModule } from "@angular/fire";
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ContactComponent } from './Pages/contact/contact.component';
 
 
 
@@ -35,7 +36,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     LoginComponent,
     EventsComponent,
     EventCardComponent,
-    ScheduleCardComponent
+    ScheduleCardComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
