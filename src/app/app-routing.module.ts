@@ -4,7 +4,7 @@ import { HomeComponent } from './Pages/home/home.component';
 import { ScheduleComponent } from './Pages/schedule/schedule.component';
 import { ShoppingCartComponent } from './Pages/shopping-cart/shopping-cart.component';
 import { SpeakersComponent } from './Pages/speakers/speakers.component';
-import { LoginComponent } from './Pages/login/login.component';
+import { LoginComponent } from './Pages/signin/signin.component';
 import { EventsComponent } from './pages/events/events.component';
 
 
@@ -24,4 +24,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-

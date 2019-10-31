@@ -1,12 +1,9 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+  <app-header></app-header>
+
+  <section style="padding-top: 10%">
 <div class="row">
   <div class="text-center" style="width: 100%;margin: 20px;">
-    <h4>Galle Literary Festival Login</h4>
+    <h4>Galle Literary Festival Sign In</h4>
   </div>
   <div class="" style="width: 500px; margin: auto">
 
@@ -16,11 +13,9 @@
         <div class="row">
           <div class="col-sm-12 text-center">
             <div class="btn-group">
-              <button type="button" class="btn" [ngClass]="{'btn-primary
-                active': selectedVal == 'login' }"
-                (click)="onValChange('login')"><strong>Login</strong></button>
-              <button type="button" class="btn" [ngClass]="{'btn-primary
-                active': selectedVal == 'register' }"
+              <button type="button" class="btn confer-btn w-10 mb-30" [ngClass]="{'confer-btn active': selectedVal == 'login' }"
+                (click)="onValChange('login')"><strong>Sign in</strong></button>
+              <button type="button" class="btn confer-btn w-10 mb-30" [ngClass]="{'confer-btn active': selectedVal == 'register' }"
                 (click)="onValChange('register')"><strong>Register</strong></button>
             </div>
 
@@ -40,11 +35,12 @@
         <div class="form-group" *ngIf="!isForgotPassword">
 
           <span *ngIf="selectedVal == 'login'; else elseBlock">
-            <button type="button" class="btn btn-primary" (click)="loginUser()">Log
+            <!--btn btn-primary -->
+            <button type="button" class="btn confer-btn w-100 mb-30" (click)="loginUser()">Sign
               In</button>
           </span>
           <ng-template #elseBlock>
-            <button type="button" class="btn btn-primary"
+            <button type="button" class="btn confer-btn w-100 mb-30"
               (click)="registerUser()">Register</button>
           </ng-template>
           &nbsp;
@@ -58,11 +54,11 @@
 
           <button type="button" class="btn" (click)="this.isForgotPassword=
             false;">Cancel</button>
-          <button type="button" class="btn btn-primary"
+          <button type="button" class="btn confer-btn w-100 mb-30"
             (click)="forgotPassword()">Get email to reset passowrd</button>
         </div>
         <div class="form-group text-center">
-          <img src="../assets/images/googlebtn.png" alt="" srcset=""
+          <img src="../assets/img/core-google/google-sign-in-btn.png" alt="Sign In With Google" srcset=""
             (click)="googleLogin()" style="cursor: pointer;">
         </div>
 
@@ -93,3 +89,5 @@
     </div>
   </div>
 </div>
+</section>
+<app-footer></app-footer>
