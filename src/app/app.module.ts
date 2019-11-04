@@ -21,6 +21,8 @@ import { AngularFireModule } from "@angular/fire";
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ContactComponent } from './Pages/contact/contact.component';
+import { SpeakersService } from './speakers.service';
+import { SpeakerCardComponent } from './speaker-card/speaker-card.component';
 
 
 
@@ -37,7 +39,8 @@ import { ContactComponent } from './Pages/contact/contact.component';
     EventsComponent,
     EventCardComponent,
     ScheduleCardComponent,
-    ContactComponent
+    ContactComponent,
+    SpeakerCardComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { ContactComponent } from './Pages/contact/contact.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [TicketService],
+  providers: [TicketService, SpeakersService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
