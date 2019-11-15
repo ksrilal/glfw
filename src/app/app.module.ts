@@ -20,7 +20,8 @@ import {FormsModule}from '@angular/forms';
 import { AngularFireModule } from "@angular/fire";
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { ContactComponent } from './Pages/contact/contact.component';
+import { ContactComponent } from './pages/contact/contact.component';
+
 
 
 

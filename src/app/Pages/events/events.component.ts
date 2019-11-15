@@ -14,6 +14,8 @@ export class EventsComponent implements OnInit {
     ticketService.getAll().subscribe(events=>{
       this.events = events;
       // console.log(events);
+
+
     });
   }
 
