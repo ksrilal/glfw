@@ -10,13 +10,14 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShoppingCartComponent } from './Pages/shopping-cart/shopping-cart.component';
 import { SpeakersComponent } from './Pages/speakers/speakers.component';
+import { SpeakerCardComponent } from './speaker-card/speaker-card.component';
 import { LoginComponent } from './Pages/signin/signin.component';
 import { EventsComponent } from './pages/events/events.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { TicketService } from './ticket.service';
 import { environment } from 'src/environments/environment';
 import {FormsModule}from '@angular/forms';
-
+import { SpeakersService } from './speakers.service';
 import { AngularFireModule } from "@angular/fire";
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -53,3 +54,4 @@ import { ContactComponent } from './pages/contact/contact.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+
