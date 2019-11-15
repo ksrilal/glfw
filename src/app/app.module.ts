@@ -38,7 +38,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     EventsComponent,
     EventCardComponent,
     ScheduleCardComponent,
-    ContactComponent
+    ContactComponent,
+    SpeakerCardComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +49,7 @@ import { ContactComponent } from './pages/contact/contact.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [TicketService],
+  providers: [TicketService, SpeakersService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
