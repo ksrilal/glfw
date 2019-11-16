@@ -53,12 +53,21 @@ export class ShoppingCartService {
 
     items$.pipe(take(1)).subscribe(item => {
       if (item.exists) {
-        this.afs
-          .collection("shopping-cart")
-          .doc(cartId)
-          .collection("items")
-          .doc(ticket.id)
-          .set({ ticket: ticket, quantity: item.get("quantity") + change });
+        if (item.get("quantity") == 1 && change == -1) {
+          this.afs
+            .collection("shopping-cart")
+            .doc(cartId)
+            .collection("items")
+            .doc(ticket.id)
+            .delete();
+        } else {
+          this.afs
+            .collection("shopping-cart")
+            .doc(cartId)
+            .collection("items")
+            .doc(ticket.id)
+            .set({ ticket: ticket, quantity: item.get("quantity") + change });
+        }
       } else {
         this.afs
           .collection("shopping-cart")

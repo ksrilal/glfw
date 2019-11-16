@@ -13,7 +13,7 @@ export class EventsComponent implements OnInit {
   cart;
   subscription: Subscription;
 
-  constructor(
+  constructor (
     ticketService: TicketService,
     private shoppingCart: ShoppingCartService
   ) {
