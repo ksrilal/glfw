@@ -9,9 +9,9 @@
       <img src="img/core-img/p1.png" alt="" />
     </div>
     <h2 class="ticket-price"><span>$</span>{{event.price}}</h2>
-    <a href="#" class="btn confer-btn w-100 mb-30"
+    <button (click)="addToCart()"  class="btn confer-btn w-100 mb-30"
       >Get Tickets <i class="zmdi zmdi-long-arrow-right"></i
-    ></a>
+    ></button>
     <!-- Ticket Pricing Table Details -->
     <div class="ticket-pricing-table-details">
       <p><i class="zmdi zmdi-check"></i> One Day Conference Ticket</p>

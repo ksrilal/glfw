@@ -9,7 +9,7 @@ export class TicketService {
   constructor(private afs: AngularFirestore) {}
 
   getAll() {
-    return this.afs.collection('events').valueChanges();
+    return this.afs.collection("events").valueChanges({ idField: "id" });
   }
 
 }

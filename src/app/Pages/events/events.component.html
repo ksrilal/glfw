@@ -65,11 +65,14 @@
       <!-- <div class="col-12 col-lg-4">
         <app-event-card></app-event-card>
       </div> -->
+
       <ng-container *ngFor="let event of events">
         <div class="col-12 col-lg-4">
           <app-event-card [event]="event" ></app-event-card>
         </div>
       </ng-container>
+
+
     </div>
   </div>
 </section>

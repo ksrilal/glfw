@@ -22,6 +22,7 @@ import { AngularFireModule } from "@angular/fire";
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ShoppingCartService } from './shopping-cart.service';
 
 
 
@@ -50,7 +51,7 @@ import { ContactComponent } from './pages/contact/contact.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [TicketService, SpeakersService],
+  providers: [TicketService, SpeakersService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
