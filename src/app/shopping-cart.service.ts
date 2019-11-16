@@ -32,6 +32,15 @@ export class ShoppingCartService {
     this.updateItemQuantity(ticket, -1);
   }
 
+  async getCart() {
+    const cartId = await this.getOrCreateCartId();
+    return this.afs
+      .collection("shopping-cart")
+      .doc(cartId)
+      .collection("items")
+      .valueChanges();
+  }
+
   private async updateItemQuantity(ticket, change: number) {
     const cartId = await this.getOrCreateCartId();
 

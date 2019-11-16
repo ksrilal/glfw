@@ -1,23 +1,46 @@
-
-  <div
-    class="single-ticket-pricing-table style-2 text-center mb-100 wow fadeInUp"
-    data-wow-delay="300ms"
-  >
-    <h6 class="ticket-plan">{{event.name}}</h6>
-    <!-- Ticket Icon -->
-    <div class="ticket-icon">
-      <img src="img/core-img/p1.png" alt="" />
-    </div>
-    <h2 class="ticket-price"><span>$</span>{{event.price}}</h2>
-    <button (click)="addToCart()"  class="btn confer-btn w-100 mb-30"
-      >Get Tickets <i class="zmdi zmdi-long-arrow-right"></i
-    ></button>
-    <!-- Ticket Pricing Table Details -->
-    <div class="ticket-pricing-table-details">
-      <p><i class="zmdi zmdi-check"></i> One Day Conference Ticket</p>
-      <p><i class="zmdi zmdi-check"></i> Coffee-break</p>
-      <p><i class="zmdi zmdi-check"></i> Lunch and Networking</p>
-      <p><i class="zmdi zmdi-check"></i> Keynote talk</p>
-      <p><i class="zmdi zmdi-check"></i> Talk to the Editors Session</p>
-    </div>
+<div
+  class="single-ticket-pricing-table style-2 text-center mb-100 wow fadeInUp"
+  data-wow-delay="300ms"
+>
+  <h6 class="ticket-plan">{{ event.name }}</h6>
+  <!-- Ticket Icon -->
+  <div class="ticket-icon">
+    <img src="../assets/img/core-img/p1.png" alt="" />
   </div>
+  <h2 class="ticket-price"><span>$</span>{{ event.price }}</h2>
+  <button
+    *ngIf="getQuantity() === 0; else updateQuantity"
+    (click)="addToCart()"
+    class="btn confer-btn w-100 mb-30"
+  >
+    Get Tickets <i class="zmdi zmdi-long-arrow-right"></i>
+  </button>
+
+  <ng-template #updateQuantity>
+    <div class="row">
+      <div class="col-4">
+        <button (click)="removeFromCart()" class="btn confer-btn w-80 mb-30">
+          - <i></i>
+        </button>
+      </div>
+       <div class="col text-center">
+          {{ getQuantity() }} in cart
+        </div>
+      <div class="col-4">
+        <button (click)="addToCart()" class="btn confer-btn w-80 mb-30">
+          + <i></i>
+        </button>
+      </div>
+
+    </div>
+  </ng-template>
+
+  <!-- Ticket Pricing Table Details -->
+  <div class="ticket-pricing-table-details">
+    <p><i class="zmdi zmdi-check"></i> One Day Conference Ticket</p>
+    <p><i class="zmdi zmdi-check"></i> Coffee-break</p>
+    <p><i class="zmdi zmdi-check"></i> Lunch and Networking</p>
+    <p><i class="zmdi zmdi-check"></i> Keynote talk</p>
+    <p><i class="zmdi zmdi-check"></i> Talk to the Editors Session</p>
+  </div>
+</div>
