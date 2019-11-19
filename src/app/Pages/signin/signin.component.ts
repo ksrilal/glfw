@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import {Router} from "@angular/router"
+
+
 
 
 @Component({
@@ -20,10 +23,17 @@ export class LoginComponent {
 
 
   constructor(
-    private authService: AuthenticationService
+    private authService: AuthenticationService, private router: Router
   ) {
     this.selectedVal = 'login';
     this.isForgotPassword = false;
+
+    if(localStorage.getItem('isLoggedIn') == 'false')
+    {
+      this.logoutUser();
+    }
+
+
 
   }
 
@@ -45,6 +55,7 @@ export class LoginComponent {
   // Check localStorage is having User Data
   isUserLoggedIn() {
     this.userDetails = this.authService.isUserLoggedIn();
+    this.router.navigate(['events'])
   }
 
   // SignOut Firebase Session and Clean LocalStorage
@@ -54,6 +65,8 @@ export class LoginComponent {
         console.log(res);
         this.userDetails = undefined;
         localStorage.removeItem('user');
+        localStorage.setItem('isLoggedIn', 'false');
+
       }, err => {
         this.showMessage("danger", err.message);
       });
@@ -67,6 +80,7 @@ export class LoginComponent {
         console.log(res);
         this.showMessage("success", "Successfully Logged In!");
         this.isUserLoggedIn();
+        localStorage.setItem('isLoggedIn', 'true');
       }, err => {
         this.showMessage("danger", err.message);
       });
@@ -86,6 +100,7 @@ export class LoginComponent {
           this.showMessage("danger", err.message);
         });
         this.isUserLoggedIn();
+        localStorage.setItem('isLoggedIn', 'true');
 
 
       }, err => {
@@ -112,6 +127,7 @@ export class LoginComponent {
         console.log(res);
         this.showMessage("success", "Successfully Logged In with Google");
         this.isUserLoggedIn();
+        localStorage.setItem('isLoggedIn', 'true');
       }, err => {
         this.showMessage("danger", err.message);
       });
