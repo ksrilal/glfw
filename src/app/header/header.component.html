@@ -48,7 +48,12 @@
               <li><a href="blog.html">Blog</a></li>
               <li><a [routerLink]="['/contact']" routerLinkActive="active" >Contact</a></li>
               <li><a [routerLink]="['/cart']" routerLinkActive="active" ><i class="zmdi zmdi-shopping-cart zmdi-hc-2x"></i></a></li>
+              <div *ngIf="logdata == 'false';">
               <li><a [routerLink]="['/login']" routerLinkActive="active" >Signin/Register</a></li>
+              </div>
+              <div *ngIf="logdata == 'true';">
+              <li><a ng-href="getlogout()" [routerLink]="['/login']" routerLinkActive="active"  >Logout</a></li>
+              </div>
 
             </ul>
 
