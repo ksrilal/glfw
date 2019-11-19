@@ -6,6 +6,8 @@ import { ShoppingCartComponent } from './Pages/shopping-cart/shopping-cart.compo
 import { SpeakersComponent } from './Pages/speakers/speakers.component';
 import { LoginComponent } from './Pages/signin/signin.component';
 import { EventsComponent } from './pages/events/events.component';
+import { ContactComponent } from './pages/contact/contact.component';
+
 
 
 const routes: Routes = [
@@ -15,7 +17,7 @@ const routes: Routes = [
   { path: 'speakers', component: SpeakersComponent },
   { path: 'login', component: LoginComponent },
   { path: 'events', component: EventsComponent },
-
+  { path: 'contact', component: ContactComponent }
 
 ];
 

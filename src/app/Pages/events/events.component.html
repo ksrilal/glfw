@@ -65,11 +65,14 @@
       <!-- <div class="col-12 col-lg-4">
         <app-event-card></app-event-card>
       </div> -->
+
       <ng-container *ngFor="let event of events">
         <div class="col-12 col-lg-4">
-          <app-event-card [event]="event" ></app-event-card>
+          <app-event-card [event]="event" [shopping-cart]="cart" ></app-event-card>
         </div>
       </ng-container>
+
+
     </div>
   </div>
 </section>
@@ -78,7 +81,7 @@
 <!-- Call to Action Area Start -->
 <section
   class="call-to-action-area bg-img bg-gradient-overlay jarallax section-padding-100"
-  style="background-image: url(img/bg-img/14.jpg);"
+  style="background-image: url(../assets/img/bg-img/14.jpg);"
 >
   <div class="container">
     <div class="row">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingCartService } from 'src/app/shopping-cart.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,29 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
+  cart$;
+  myCart:any[];
+  shoppingCartItemCount:number;
+  totalPrice:number;
 
-  public count = 1;
-  public tprice = 20;
-
-  public amount=20 ;
+  constructor(private shoppingCart: ShoppingCartService) { }
 
 
-  ngOnInit() {
+  async ngOnInit() {
+    let cart$ = await this.shoppingCart.getCart();
+    cart$.subscribe(cart=>{
+      this.shoppingCartItemCount=0;
+      this.totalPrice=0;
+      for(let ticketId in cart){
+        this.shoppingCartItemCount+= cart[ticketId]['quantity'];
+        this.totalPrice += Number(cart[ticketId]["ticket"]["price"]);
+        this.myCart=cart;
+      }
+      console.log(this.myCart);
+    })
   }
 
-  increment() {
-    this.count++;
-    this.amount +=this.tprice;
-  }
-  decrement() {
-    if (this.count <= 0) {
-      this.count = 0;
-      return;
-    }
-    this.count--;
-    this.amount -= this.tprice;
+  addToCart(item) {
+    // this.shoppingCart.addToCart(item);
+    console.log(item);
 
   }
+
 
 }

@@ -58,21 +58,24 @@
           </div>
 
           <!-- Post Author Area -->
-          <div class="post-author-area d-flex align-items-center my-5">
+          <div *ngFor="let item of myCart">
+            <div class="post-author-area d-flex align-items-center my-5">
             <div class="row">
               <div class="col-sm-3">
                 <!-- Avatar -->
-                <div class="author-avatar">
-                  <img src="../assets/img/bg-img/Romesh-Gunasekara.jpg" alt="" />
+                <div   class="author-avatar">
+                  <img
+                    src="../assets/img/bg-img/Romesh-Gunasekara.jpg"
+                    alt=""
+
+                  />
                 </div>
               </div>
               <div class="col-sm-4">
                 <!-- Author Content -->
                 <div class="author-content">
-                  <h5>Excursion</h5>
-                  <span>Romesh Gunesekara
-
-</span>
+                  <h5>{{item['ticket']['name']}}</h5>
+                  <span>{{item['ticket']['author']}} </span>
                   <!-- <p>
                     These cases are perfectly simple and easy to distinguish. In
                     a free hour, when our power of choice is untrammelled and
@@ -84,26 +87,28 @@
                 <button
                   type="button"
                   class="btn btn-secondary btn-circle btn-sm"
-                  (click)="decrement()"
-                  >   -
+                >
+                  -
                 </button>
                 &nbsp;
-                {{count}}
+                {{item['quantity']}}
                 &nbsp;
                 <button
                   type="button"
                   class="btn btn-secondary btn-circle btn-sm"
-                  (click)="increment()"
+                  (click)="addToCart(item)"
                 >
                   +
                 </button>
               </div>
               <div class="col-sm-2">
-                <h5>USD &nbsp; ${{amount}}.00</h5>
+                <h5>USD &nbsp; ${{item['ticket']['price']}}.00</h5>
               </div>
             </div>
           </div>
 
+
+          </div>
         </div>
       </div>
 
@@ -131,12 +136,15 @@
             <div class="post-author-widget">
               <!-- Author Content -->
               <div class="post-author-content">
-                <h5>Chechout</h5>
+                <h5>Checkout</h5>
                 <!-- <span>Photographer</span> -->
                 <!-- <p>Item (1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$20</p> -->
                 <!-- <p>------------------------</p> -->
                 <p>
-                  Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${{amount}}
+                  Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  ${{
+                    totalPrice
+                  }}
                 </p>
                 <div
                   class="hero-btn-group"
