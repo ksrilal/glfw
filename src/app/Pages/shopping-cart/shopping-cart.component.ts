@@ -36,5 +36,11 @@ export class ShoppingCartComponent implements OnInit {
 
   }
 
+  checkout(){
+    this.shoppingCart.checkout(this.myCart);
+    localStorage.removeItem('cartId');
+
+  }
+
 
 }

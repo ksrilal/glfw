@@ -60,54 +60,51 @@
           <!-- Post Author Area -->
           <div *ngFor="let item of myCart">
             <div class="post-author-area d-flex align-items-center my-5">
-            <div class="row">
-              <div class="col-sm-3">
-                <!-- Avatar -->
-                <div   class="author-avatar">
-                  <img
-                    src="../assets/img/bg-img/Romesh-Gunasekara.jpg"
-                    alt=""
-
-                  />
+              <div class="row">
+                <div class="col-sm-3">
+                  <!-- Avatar -->
+                  <div class="author-avatar">
+                    <img
+                      src="../assets/img/bg-img/Romesh-Gunasekara.jpg"
+                      alt=""
+                    />
+                  </div>
                 </div>
-              </div>
-              <div class="col-sm-4">
-                <!-- Author Content -->
-                <div class="author-content">
-                  <h5>{{item['ticket']['name']}}</h5>
-                  <span>{{item['ticket']['author']}} </span>
-                  <!-- <p>
+                <div class="col-sm-4">
+                  <!-- Author Content -->
+                  <div class="author-content">
+                    <h5>{{ item["ticket"]["name"] }}</h5>
+                    <span>{{ item["ticket"]["author"] }} </span>
+                    <!-- <p>
                     These cases are perfectly simple and easy to distinguish. In
                     a free hour, when our power of choice is untrammelled and
                     when nothing
                   </p> -->
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-circle btn-sm"
+                  >
+                    -
+                  </button>
+                  &nbsp;
+                  {{ item["quantity"] }}
+                  &nbsp;
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-circle btn-sm"
+                    (click)="addToCart(item)"
+                  >
+                    +
+                  </button>
+                </div>
+                <div class="col-sm-2">
+                  <h5>USD &nbsp; ${{ item["ticket"]["price"] }}.00</h5>
                 </div>
               </div>
-              <div class="col-sm-3">
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-circle btn-sm"
-                >
-                  -
-                </button>
-                &nbsp;
-                {{item['quantity']}}
-                &nbsp;
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-circle btn-sm"
-                  (click)="addToCart(item)"
-                >
-                  +
-                </button>
-              </div>
-              <div class="col-sm-2">
-                <h5>USD &nbsp; ${{item['ticket']['price']}}.00</h5>
-              </div>
             </div>
-          </div>
-
-
           </div>
         </div>
       </div>
@@ -140,24 +137,31 @@
                 <!-- <span>Photographer</span> -->
                 <!-- <p>Item (1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$20</p> -->
                 <!-- <p>------------------------</p> -->
-                <p>
-                  Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  ${{
-                    totalPrice
-                  }}
-                </p>
-                <div
-                  class="hero-btn-group"
-                  data-animation="fadeInUp"
-                  data-delay="700ms"
-                >
-                  <a href="#" class="btn confer-btn m-2"
-                    >Shopping <i class="zmdi zmdi-long-arrow-right"></i
-                  ></a>
-                  <a href="#" class="btn confer-btn m-2"
-                    >Checkout <i class="zmdi zmdi-long-arrow-right"></i
-                  ></a>
+
+                <div *ngIf="totalPrice; else nullCart">
+                  <p>
+                    Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    ${{ totalPrice }}
+                  </p>
+                  <div
+                    class="hero-btn-group"
+                    data-animation="fadeInUp"
+                    data-delay="700ms"
+                  >
+                    <button  [routerLink]="['/events']" routerLinkActive="active"  class="btn confer-btn m-2">
+                      Shopping <i class="zmdi zmdi-long-arrow-right"></i
+                    ></button>
+                    <button (click)="checkout()" class="btn confer-btn m-2">
+                      Checkout <i class="zmdi zmdi-long-arrow-right"></i>
+                    </button>
+                  </div>
                 </div>
+                <ng-template #nullCart>
+                  <p>Car is empty</p>
+                  <button [routerLink]="['/events']" routerLinkActive="active"  class="btn confer-btn m-2" >
+                    Shopping <i class="zmdi zmdi-long-arrow-right"></i
+                  ></button>
+                </ng-template>
               </div>
             </div>
           </div>

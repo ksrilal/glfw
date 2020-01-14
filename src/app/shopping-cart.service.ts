@@ -78,4 +78,23 @@ export class ShoppingCartService {
       }
     });
   }
+
+  async checkout(cart) {
+    const cartId = await localStorage.getItem("cartId");
+    this.afs
+      .collection("orders")
+      .doc(cartId)
+      .set({});
+
+    await cart.forEach(element => {
+      this.afs
+        .collection("orders")
+        .doc(cartId)
+        .collection("events")
+        .doc(element["ticket"].id)
+        .set(
+          element
+        );
+    });
+  }
 }
