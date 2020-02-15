@@ -15,6 +15,11 @@ export class ScheduleCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  // state: boolean;
+  // statusClick(event: Event) {
+  //   this.state =false;
+  //   //console.log('CLICK!', event)
+  // }
   
 
 
