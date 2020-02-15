@@ -17,7 +17,7 @@ export class EventsComponent implements OnInit {
     private ticketService: TicketService,
     private shoppingCart: ShoppingCartService
   ) {
-    ticketService.getAll().subscribe(events => {
+    ticketService.getTickets().subscribe(events => {
       this.events = events;
       // console.log(events);
     });
@@ -32,4 +32,5 @@ export class EventsComponent implements OnInit {
       this.cart = cart;
     });
   }
+  
 }
