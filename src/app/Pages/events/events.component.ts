@@ -14,7 +14,7 @@ export class EventsComponent implements OnInit {
   subscription: Subscription;
 
   constructor (
-    ticketService: TicketService,
+    private ticketService: TicketService,
     private shoppingCart: ShoppingCartService
   ) {
     ticketService.getAll().subscribe(events => {

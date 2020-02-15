@@ -3,7 +3,8 @@
 <!-- Header Area End -->
 
 <!-- Breadcrumb Area Start -->
-<section class="breadcrumb-area bg-img bg-gradient-overlay jarallax" style="background-image: url(../assets/img/bg-img/17.jpg);">
+<section class="breadcrumb-area bg-img bg-gradient-overlay jarallax"
+  style="background-image: url(../assets/img/bg-img/17.jpg);">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12">
@@ -29,28 +30,28 @@
       <div class="col-12">
         <div class="schedule-tab">
           <!-- Nav Tabs -->
-          <ul class="nav nav-tabs wow fadeInUp" data-wow-delay="300ms" id="conferScheduleTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="monday-tab" data-toggle="tab" href="#step-one" role="tab"
+          <ul  class="nav nav-tabs wow fadeInUp" data-wow-delay="300ms" id="conferScheduleTab" role="tablist">
+            <li (click)="getFirst()"  class="nav-item">
+              <a  class="nav-link active" id="monday-tab" data-toggle="tab" href="#step-one" role="tab"
                 aria-controls="step-one" aria-expanded="true">Monday <br> <span>January 14, 2020</span></a>
             </li>
             <!-- Nav Item -->
-            <li class="nav-item">
+            <li class="nav-item" (click)="getSecond()">
               <a class="nav-link " id="tuesday-tab" data-toggle="tab" href="#step-two" role="tab"
                 aria-controls="step-two" aria-expanded="true">Tuesday <br> <span>January 15, 2020</span></a>
             </li>
             <!-- Nav Item -->
-            <li class="nav-item">
+            <li class="nav-item" (click)="getThird()">
               <a class="nav-link" id="wednesday-tab" data-toggle="tab" href="#step-three" role="tab"
                 aria-controls="step-three" aria-expanded="true">Wednesday <br> <span>January 16, 2020</span></a>
             </li>
             <!-- Nav Item -->
-            <li class="nav-item">
+            <li class="nav-item" (click)="getFourth()">
               <a class="nav-link" id="thurday-tab" data-toggle="tab" href="#step-three" role="tab"
                 aria-controls="step-three" aria-expanded="true">Thursday<br><span>January 17, 2020</span></a>
             </li>
             <!-- Nav Item -->
-            <li class="nav-item">
+            <li class="nav-item" (click)="getFifth()">
               <a class="nav-link" id="friday-tab" data-toggle="tab" href="#step-three" role="tab"
                 aria-controls="step-three" aria-expanded="true">Friday<br><span>January 18, 2020</span></a>
             </li>
@@ -65,27 +66,28 @@
             <div class="single-tab-content">
               <div class="row">
                 <div class="col-12">
-  
-                <ng-container *ngFor = "let event of events">
-                 
 
-                    <app-schedule-card  [event]="event" > </app-schedule-card>
-                 
-                 </ng-container>
-                 
+                  <ng-container *ngFor="let event of events">
+
+
+                    <app-schedule-card [event]="event"> </app-schedule-card>
+
+                  </ng-container>
+
                 </div>
 
                 <!-- More Schedule Btn -->
                 <div class="col-12">
                   <div class="more-schedule-btn text-center mt-50 wow fadeInUp" data-wow-delay="300ms">
-                    <a href="#" class="btn confer-btn">View More <i class="zmdi zmdi-long-arrow-right"></i></a>
+                    <a [routerLink]="['/events']" routerLinkActive="active" class="btn confer-btn" >GET TICKETS <i
+                        class="zmdi zmdi-long-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-         
+
         </div>
       </div>
     </div>
@@ -95,8 +97,7 @@
 
 <!-- Map Area Start -->
 <div class="map-area">
-  <iframe
-src="https://maps.google.com/maps?q=galle%20fort&t=&z=17&ie=UTF8&iwloc=&output=embed"
+  <iframe src="https://maps.google.com/maps?q=galle%20fort&t=&z=17&ie=UTF8&iwloc=&output=embed"
     allowfullscreen></iframe>
 </div>
 <!-- Map Area End -->
@@ -104,5 +105,3 @@ src="https://maps.google.com/maps?q=galle%20fort&t=&z=17&ie=UTF8&iwloc=&output=e
 <!-- Footer Area Start -->
 <app-footer></app-footer>
 <!-- Footer Area End -->
-
-          

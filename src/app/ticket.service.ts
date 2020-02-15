@@ -8,8 +8,8 @@ export class TicketService {
 
   constructor(private afs: AngularFirestore) {}
 
-  getAll() {
-    return this.afs.collection("events").valueChanges({ idField: "id" });
+  getAll(date?) {
+    return this.afs.collection("events",ref=>ref.where('day',"==",date)).valueChanges({ idField: "id" });
   }
 
 }
