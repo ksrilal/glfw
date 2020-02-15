@@ -21,7 +21,7 @@ export class EventsComponent implements OnInit {
       this.events = events;
       // console.log(events);
     });
-  }
+  } 
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -32,5 +32,5 @@ export class EventsComponent implements OnInit {
       this.cart = cart;
     });
   }
-  
+
 }

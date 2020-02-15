@@ -10,12 +10,14 @@
     <div class="single-schedule-info">
       <h6>{{event.name}}</h6>
       <p>by <span>{{event.author}}</span></p>
+      <p>at <span>{{event.time}}</span> </p>
+      <p>venue <span>{{event.venue}}</span> </p>
     </div>
   </div>
   <!-- Single Schedule Info -->
   <div class="schedule-time-place">
-    <p><i class="zmdi zmdi-time"></i> {{event.date}} at {{event.time}}</p>
-    <p><i class="zmdi zmdi-home"></i> {{event.venue}}</p>
+    
+    <p>{{event.des}}</p>
   </div>
   <!-- Schedule Btn -->
   <a [routerLink]="['/events']" routerLinkActive="active" class="btn confer-btn">GET TICKETS <i class="zmdi zmdi-long-arrow-right"></i></a>
