@@ -2256,8 +2256,8 @@ input:required {
       justify-content: center;
       border-bottom: none; }
       .our-schedule-area .schedule-tab .nav-tabs .nav-item .nav-link {
-        color: #9293bc;
-        background-color: #1f2371;
+        color: #ffffff;
+        background-color: #2160e9;
         text-align: center;
         border-radius: 0;
         font-size: 18px;
@@ -2268,7 +2268,7 @@ input:required {
         border-bottom: none;
         border-top: none;
         border-left: none;
-        border-right: 1px solid #4c4f8d; }
+        border-right: 1px solid #ffffff; }
         @media only screen and (min-width: 768px) and (max-width: 991px) {
           .our-schedule-area .schedule-tab .nav-tabs .nav-item .nav-link {
             font-size: 14px; } }
@@ -2319,7 +2319,7 @@ input:required {
     flex: 0 0 42%;
     max-width: 42%;
     width: 42%;
-    padding-right: 15px; }
+    padding-right: 5px; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .single-schedule-area .single-schedule-tumb-info {
         -webkit-box-flex: 0;
@@ -2374,9 +2374,9 @@ input:required {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 42%;
     flex: 0 0 42%;
-    max-width: 42%;
+    max-width: 80%;
     width: 42%;
-    padding: 0 15px; }
+    padding: 0 25px 0 0; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .single-schedule-area .schedule-time-place {
         -webkit-box-flex: 0;

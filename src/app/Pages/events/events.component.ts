@@ -14,14 +14,14 @@ export class EventsComponent implements OnInit {
   subscription: Subscription;
 
   constructor (
-    ticketService: TicketService,
+    private ticketService: TicketService,
     private shoppingCart: ShoppingCartService
   ) {
-    ticketService.getAll().subscribe(events => {
+    ticketService.getTickets().subscribe(events => {
       this.events = events;
       // console.log(events);
     });
-  }
+  } 
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -32,4 +32,5 @@ export class EventsComponent implements OnInit {
       this.cart = cart;
     });
   }
+
 }
