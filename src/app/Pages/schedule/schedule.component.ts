@@ -19,14 +19,14 @@ export class ScheduleComponent implements OnInit {
   }
 
   getFirst(){
-    this.ticketService.getAll(1).subscribe(events => {
+    this.ticketService.getAll("1").subscribe(events => {
       this.events = events;
       console.log(events);
 
     })
   }
   getSecond(){
-    this.ticketService.getAll(2).subscribe(events => {
+    this.ticketService.getAll("2").subscribe(events => {
       this.events = events;
       console.log(events);
 
@@ -34,7 +34,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   getThird(){
-    this.ticketService.getAll(3).subscribe(events => {
+    this.ticketService.getAll("3").subscribe(events => {
       this.events = events;
       console.log(events);
 
@@ -42,7 +42,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   getFourth(){
-    this.ticketService.getAll(4).subscribe(events => {
+    this.ticketService.getAll("4").subscribe(events => {
       this.events = events;
       console.log(events);
 
@@ -50,7 +50,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   getFifth(){
-    this.ticketService.getAll(5).subscribe(events => {
+    this.ticketService.getAll("5").subscribe(events => {
       this.events = events;
       console.log(events);
 
