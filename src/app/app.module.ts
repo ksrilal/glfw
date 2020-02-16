@@ -23,6 +23,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ShoppingCartService } from './shopping-cart.service';
+import { AccountComponent } from './account/account.component';
 
 
 
@@ -41,7 +42,8 @@ import { ShoppingCartService } from './shopping-cart.service';
     EventCardComponent,
     ScheduleCardComponent,
     ContactComponent,
-    SpeakerCardComponent
+    SpeakerCardComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

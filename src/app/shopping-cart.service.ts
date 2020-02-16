@@ -81,10 +81,10 @@ export class ShoppingCartService {
 
   async checkout(cart) {
     const cartId = await localStorage.getItem("cartId");
-    this.afs
+    var docRef=this.afs
       .collection("orders")
       .doc(cartId)
-      .set({});
+      .set({ status: false ,name:'Oliver',country:'UK'});
 
     await cart.forEach(element => {
       this.afs
@@ -92,9 +92,13 @@ export class ShoppingCartService {
         .doc(cartId)
         .collection("events")
         .doc(element["ticket"].id)
-        .set(
-          element
-        );
+        .set(element);
     });
+
+    this.afs
+      .collection("users")
+      .doc(cartId)
+      .set({ status: false, name: "Oliver", country: "UK" });
+
   }
 }
