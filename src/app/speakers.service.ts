@@ -10,6 +10,6 @@ export class SpeakersService {
    }
 
    getAll() {
-     return this.afs.collection('speakers').valueChanges();
+     return this.afs.collection('authors').valueChanges();
    }
 }
